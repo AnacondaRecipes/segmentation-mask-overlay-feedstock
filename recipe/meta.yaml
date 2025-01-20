@@ -8,14 +8,14 @@ package:
 source:
   url: https://github.com/lobantseff/{{ name }}/archive/v{{ version }}.tar.gz
   sha256: 4d33eebc433b350d57cc0d6154a3b4112f886666f5acb8ecddab5b67286d4476
-  # Unsatisfiable dependencies for platform linux-s390x: {MatchSpec("opencv[version='>=4.5.3']")}
-  skip: True  # [s390x]
-  # Not avaliable opencv on py313 
-  skip: True  # [py==313]
 
 build:
   number: 0
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  # Unsatisfiable dependencies for platform linux-s390x: {MatchSpec("opencv[version='>=4.5.3']")}
+  skip: True  # [s390x]
+  # Not avaliable opencv on py313 
+  skip: True  # [py==313]
 
 requirements:
   host:
