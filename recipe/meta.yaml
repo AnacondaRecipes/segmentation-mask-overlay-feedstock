@@ -1,0 +1,54 @@
+{% set name = "segmentation-mask-overlay" %}
+{% set version = "0.3.4" %}
+
+package:
+  name: {{ name|lower }}
+  version: {{ version }}
+
+source:
+  url: https://github.com/lobantseff/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: 4d33eebc433b350d57cc0d6154a3b4112f886666f5acb8ecddab5b67286d4476
+
+build:
+  number: 0
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+
+requirements:
+  host:
+    - python
+    - pip
+    - setuptools
+    - wheel
+    # host_section_needs_exact_pinnings: Linked libraries host should have exact version pinnings.
+    - flake8 7.1.1
+  run:
+    - python
+    - matplotlib-base >=3.4.2
+    - numpy >=1.20
+    - opencv >=4.5.3
+    - pillow >=7.2.0
+
+test:
+  imports:
+    - segmentation_mask_overlay
+  commands:
+    - pip check
+  requires:
+    - pip
+
+about:
+  home: https://github.com/lobantseff/segmentation-mask-overlay
+  summary: 'the modular source code checker: pep8 pyflakes and co'
+  description: |
+    Here you can take your segmentation map, put on an image individually or in a company. If you have a bunch of them, they will blend if touch each other.
+    You can even name them one by one, providing labels.
+    That's it! As simple as is. Now you are completely ready to laminate images with your segmentation.
+  license: MIT
+  license_family: MIT
+  license_file: LICENSE
+  doc_url: https://github.com/lobantseff/segmentation-mask-overlay/blob/master/README.md
+  dev_url: https://github.com/lobantseff/segmentation-mask-overlay
+
+extra:
+  recipe-maintainers:
+    - snegireff
