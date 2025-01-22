@@ -1,0 +1,24 @@
+From 98d64388ec58d82ed0a526f00234adb6a93dbb76 Mon Sep 17 00:00:00 2001
+From: Andrii Osipov <aosipov@anaconda.com>
+Date: Tue, 21 Jan 2025 16:39:53 -0800
+Subject: [PATCH] Remove flake8
+
+---
+ setup.py | 3 +--
+ 1 file changed, 1 insertion(+), 2 deletions(-)
+
+diff --git a/setup.py b/setup.py
+index 46b8de4..b7798d2 100755
+--- a/setup.py
++++ b/setup.py
+@@ -25,6 +25,5 @@ setup(
+         "opencv-python-headless>=4.5.3",
+         "Pillow>=7.2.0"
+ 
+-    ],
+-    setup_requires=["flake8"],
++    ]
+ )
+-- 
+2.39.3 (Apple Git-146)
+
